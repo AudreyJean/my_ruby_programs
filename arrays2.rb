@@ -2,17 +2,17 @@
 j = 0
 words = []
 words2 = []
-a_word = ' '
+a_word = 'a' # dummy initialization to get into the until loop below
 i = 0
-puts "Type a word and press <Enter>:"
-#~ # Loop to accept an unspecified number of words-- creates original array
-while a_word != ""
+puts "Type a word and press <Enter> (Enter a blank line to quit):" 
+# Loop to accept an unspecified number of words-- creates original array
+until a_word.empty?
   a_word = gets.chomp
   if a_word != ""
     words.push a_word
-    i = i + 1
+    i += 1
   end # end if
-end # end while
+end # end until
 
 while words.length > 0
   i = words.length - 1
@@ -28,6 +28,6 @@ while words.length > 0
     end  # end for
     words2.push a_word  # push smallest word onto new array
     words.delete_at(a_index) # delete the lowest element in the original array
-    i = words.length - 1
+    i -= words.length 
 end # end while
 puts words2
